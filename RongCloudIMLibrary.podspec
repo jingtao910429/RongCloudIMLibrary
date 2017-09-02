@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "RongCloudIMLibrary"
-  s.version      = "0.0.9"
+  s.version      = "0.0.1"
   s.summary      = "RongCloudIM‘s upper pack of RongCloudIMLibrary."
 
   # This description is used to generate tags and improve search results.
