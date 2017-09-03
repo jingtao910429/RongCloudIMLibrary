@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
   # , "RongCloudIM/RongIMLib/*.{h}", "RongCloudIM/RongIMKit/*.{h}"
-  s.source_files  = "Source/*.{h,m}"
+  s.source_files  = "Source/*.{h}"
   # s.source_files  = "Classes", "Classes/**/*.{h,m}"
   # s.exclude_files = "Classes/Exclude"
 
