@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "RongCloudIMLibrary"
-  s.version      = "0.0.7"
+  s.version      = "0.0.8"
   s.summary      = "RongCloudIM‘s upper pack of RongCloudIMLibrary."
   s.description  = <<-DESC
                    兔博士团队融云消息中心封装，基于Object-C，链式调用方式、对外接口
@@ -15,17 +15,51 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/jingtao910429/RongCloudIMLibrary.git"}
 
-  s.frameworks   = 'CoreLocation', 'CoreTelephony', 'AVFoundation', 'Contacts', 'AddressBook', 'AudioToolbox', 'SystemConfiguration', 'QuartzCore', 'CoreGraphics'
-  s.source_files = "RongCloudIM/RongIMLib.framework/Headers/RongIMLib.h", "RongCloudIM/RongIMKit.framework/Headers/RongIMKit.h"
-  s.vendored_frameworks = ["RongCloudIM/RongIMLib.framework", "RongCloudIM/RongIMKit.framework"]
-  s.vendored_libraries = "RongCloudIM/libopencore-amrnb.a"
-  s.resources = [
-    "RongCloudIM/*.{plist}",
-    "RongCloudIM/*.{lproj}",
-    "RongCloudIM/RongCloud.bundle"
-  ]
   s.libraries = "sqlite3.0", "c++", "xml2", "stdc++", "z"
-  s.xcconfig  = { "LIBRARY_SEARCH_PATHS" => "\"$(PODS_ROOT)/RongCloudIMLibrary/**\"" }
+
+  s.subspec 'RongIMLib' do |subspec|
+    
+    subspec.source_files = "RongCloudIM/RongIMLib.framework/Headers/*.h"
+    subspec.public_header_files = "RongCloudIM/RongIMLib.framework/Headers/RongIMLib.h"
+    subspec.vendored_frameworks = ["RongCloudIM/RongIMLib.framework"]
+    subspec.vendored_libraries = "RongCloudIM/libopencore-amrnb.a"
+    subspec.resources = [
+      "RongCloudIM/RCConfig.plist"
+    ]
+  end
+
+  s.subspec 'RongIMKit' do |subspec|
+    
+    subspec.source_files = "RongCloudIM/RongIMKit.framework/Headers/*.h"
+    subspec.public_header_files = "RongCloudIM/RongIMKit.framework/Headers/RongIMKit.h"
+    subspec.vendored_frameworks = ["RongCloudIM/RongIMKit.framework"]
+    subspec.resources = [
+      "RongCloudIM/Emoji.plist",
+      "RongCloudIM/*.{lproj}",
+      "RongCloudIM/RongCloud.bundle"
+    ]
+    subspec.frameworks = 
+        "AssetsLibrary",
+        "MapKit",
+        "ImageIO",
+        "CoreLocation",
+        "SystemConfiguration",
+        "QuartzCore",
+        "OpenGLES",
+        "CoreVideo",
+        "CoreTelephony",
+        "CoreMedia",
+        "CoreAudio",
+        "CFNetwork",
+        "AudioToolbox",
+        "AVFoundation",
+        "UIKit",
+        "CoreGraphics",
+        "SafariServices"
+    subspec.dependency 'RongCloudIMLibrary/RongIMLib'
+  end
+
+  
   s.user_target_xcconfig =  {'OTHER_LINKER_FLAGS' => ['-lObjC','-all_load']}
   s.pod_target_xcconfig = {'OTHER_LDFLAGS' => ['-lObjC','-all_load']}
 
