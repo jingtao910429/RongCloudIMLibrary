@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "RongCloudIMLibrary"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "RongCloudIM‘s upper pack of RongCloudIMLibrary."
   s.description  = <<-DESC
                    兔博士团队融云消息中心封装，基于Object-C，链式调用方式、对外接口
