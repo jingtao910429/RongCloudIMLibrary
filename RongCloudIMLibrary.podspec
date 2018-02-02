@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "RongCloudIMLibrary"
-  s.version      = "0.0.9"
+  s.version      = "0.1.0"
   s.summary      = "RongCloudIM‘s upper pack of RongCloudIMLibrary."
   s.description  = <<-DESC
                    兔博士团队融云消息中心封装，基于Object-C，链式调用方式、对外接口
@@ -20,7 +20,6 @@ Pod::Spec.new do |s|
   s.subspec 'RongIMLib' do |subspec|
     
     subspec.source_files = "RongCloudIM/RongIMLib.framework/Headers/*.h"
-    subspec.public_header_files = "RongCloudIM/RongIMLib.framework/Headers/RongIMLib.h"
     subspec.vendored_frameworks = ["RongCloudIM/RongIMLib.framework"]
     subspec.vendored_libraries = "RongCloudIM/libopencore-amrnb.a"
     subspec.resources = [
@@ -31,7 +30,6 @@ Pod::Spec.new do |s|
   s.subspec 'RongIMKit' do |subspec|
     
     subspec.source_files = "RongCloudIM/RongIMKit.framework/Headers/*.h"
-    subspec.public_header_files = "RongCloudIM/RongIMKit.framework/Headers/RongIMKit.h"
     subspec.vendored_frameworks = ["RongCloudIM/RongIMKit.framework"]
     subspec.resources = [
       "RongCloudIM/Emoji.plist",
